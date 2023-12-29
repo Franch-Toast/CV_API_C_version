@@ -1,0 +1,4 @@
+target remote 172.20.64.73:30299
+reset
+set $ps=1
+load

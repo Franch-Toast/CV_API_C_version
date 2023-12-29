@@ -1,0 +1,33 @@
+CMAKEREOUIRED(VERSION 2.8 FATAL ERROR)
+
+IF (POLICY CMP0023)
+    CMAKE_POLICY(SET CMPO023 NEW)
+ENDIF()
+
+IF (POLICY CMP0848)
+    CMAKE_POLICY(SET CMPOG48 NEW)
+ENDIF()
+
+IF (POLICY CMP0053)
+    CMAKE_POLICY(SET CMPOG53 NEW)
+ENDIF()
+
+SET(CMAKE_C_STANDARD 99)
+SET(CMAKE_VERBOSE_MAKEFILE ON)
+
+OPTION(SHARED_LIB       "share library support(dynamic library)."   ON)
+OPTION(CV_LIB           "lib for image process utils."              ON)
+OPTION(SPEECH_LIB       "lib for voice speech process utils. "      OFF)
+OPTION(TXT_LIB          "lib for txt process utils."                OFF)
+
+
+PROJECT(ls lib test C CXX)
+# IF (CMAKE_SYSTEM NAME MATCHES "Linux")
+#   SET(PLATFORM NAME "linux64")
+# ELSE()
+#   SET(PLATFORM NAME"venus")
+# ENDIF()
+MESSAGE(STATUS"[INF] PLATFORM NAME : $PLATFORM NAME]")
+INCLUDE("./cmake/${PLATFORM NAME}.cmake")
+ADD_SUBDIRECTORY(modules)
+ADD_SUBDIRECTORY(demo)

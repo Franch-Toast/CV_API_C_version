@@ -1,0 +1,933 @@
+/* This linker script generated from xt-genldscripts.tpp for LSP arch/min-rt */
+/* Linker Script for default link */
+MEMORY
+{
+  /*sharedmem0_seg :                    	org = 0x48000000, len = 0x80000*/
+  /*sharedmem1_seg :                    	org = 0x48080000, len = 0x20000*/
+  share_sram_0_seg :                  	org = 0x200C0000, len = 0x10000
+  srom0_seg :                         	org = 0x50000000, len = 0x1000000
+  dram0_0_seg :                       	org = 0x5FDE0000, len = 0x4000
+  dram1_0_seg :                       	org = 0x5FE00000, len = 0xA0000
+  sharedmem1_seg :                    	org = 0x5FEA0000, len = 0x20000
+  iram0_0_seg :                       	org = 0x5FF00000, len = 0x4000
+  sram0_seg :                         	org = 0x60000000, len = 0x2E0
+  sram2_seg :                         	org = 0x60000400, len = 0x178
+  sram3_seg :                         	org = 0x60000578, len = 0x4
+  sram4_seg :                         	org = 0x6000057C, len = 0x1C
+  sram5_seg :                         	org = 0x60000598, len = 0x4
+  sram6_seg :                         	org = 0x6000059C, len = 0x1C
+  sram7_seg :                         	org = 0x600005B8, len = 0x4
+  sram8_seg :                         	org = 0x600005BC, len = 0x1C
+  sram9_seg :                         	org = 0x600005D8, len = 0x4
+  sram10_seg :                        	org = 0x600005DC, len = 0x1C
+  sram11_seg :                        	org = 0x600005F8, len = 0x4
+  sram12_seg :                        	org = 0x600005FC, len = 0x1C
+  sram13_seg :                        	org = 0x60000618, len = 0x4
+  sram14_seg :                        	org = 0x6000061C, len = 0x1C
+  sram15_seg :                        	org = 0x60000638, len = 0x4
+  sram16_seg :                        	org = 0x6000063C, len = 0x1C
+  sram17_seg :                        	org = 0x60000658, len = 0x4
+  sram18_seg :                        	org = 0x6000065C, len = 0x1C
+  sram19_seg :                        	org = 0x60000678, len = 0x4
+  sram20_seg :                        	org = 0x6000067C, len = 0x1C
+  sram21_seg :                        	org = 0x60000698, len = 0x7FF968
+}
+
+PHDRS
+{
+  share_sram_0_phdr PT_LOAD;
+  share_sram_0_bss_phdr PT_LOAD;
+  sharedmem1_phdr PT_LOAD;
+  sharedmem1_bss_phdr PT_LOAD;
+  srom0_phdr PT_LOAD;
+  dram0_0_phdr PT_LOAD;
+  dram0_0_bss_phdr PT_LOAD;
+  dram1_0_phdr PT_LOAD;
+  dram1_0_bss_phdr PT_LOAD;
+  iram0_0_phdr PT_LOAD;
+  sram0_phdr PT_LOAD;
+  sram1_phdr PT_LOAD;
+  sram2_phdr PT_LOAD;
+  sram3_phdr PT_LOAD;
+  sram4_phdr PT_LOAD;
+  sram5_phdr PT_LOAD;
+  sram6_phdr PT_LOAD;
+  sram7_phdr PT_LOAD;
+  sram8_phdr PT_LOAD;
+  sram9_phdr PT_LOAD;
+  sram10_phdr PT_LOAD;
+  sram11_phdr PT_LOAD;
+  sram12_phdr PT_LOAD;
+  sram13_phdr PT_LOAD;
+  sram14_phdr PT_LOAD;
+  sram15_phdr PT_LOAD;
+  sram16_phdr PT_LOAD;
+  sram17_phdr PT_LOAD;
+  sram18_phdr PT_LOAD;
+  sram19_phdr PT_LOAD;
+  sram20_phdr PT_LOAD;
+  sram21_phdr PT_LOAD;
+  sram21_bss_phdr PT_LOAD;
+}
+
+
+/*  Default entry point:  */
+ENTRY(_ResetVector)
+
+
+/*  Memory boundary addresses:  */
+_memmap_mem_share_sram_start = 0x200c0000;
+_memmap_mem_share_sram_end   = 0x200d0000;
+_memmap_mem_srom_start = 0x50000000;
+_memmap_mem_srom_end   = 0x51000000;
+_memmap_mem_dram0_start = 0x5fde0000;
+_memmap_mem_dram0_end   = 0x5fde4000;
+_memmap_mem_dram1_start = 0x5fe00000;
+_memmap_mem_dram1_end   = 0x5fea0000;
+_memmap_mem_sharedmem1_start = 0x5fea0000;
+_memmap_mem_sharedmem1_end   = 0x5fec0000;
+_memmap_mem_iram0_start = 0x5ff00000;
+_memmap_mem_iram0_end   = 0x5ff04000;
+_memmap_mem_sram_start = 0x60000000;
+_memmap_mem_sram_end   = 0x60800000;
+
+
+
+/*  Memory segment boundary addresses:  */
+_memmap_seg_share_sram_0_start = 0x200c0000;
+_memmap_seg_share_sram_0_max   = 0x200d0000;
+_memmap_seg_srom0_start = 0x50000000;
+_memmap_seg_srom0_max   = 0x51000000;
+_memmap_seg_dram0_0_start = 0x5fde0000;
+_memmap_seg_dram0_0_max   = 0x5fde4000;
+_memmap_seg_dram1_0_start = 0x5fe00000;
+_memmap_seg_dram1_0_max   = 0x5fea0000;
+_memmap_seg_sharedmem1_start = 0x5fea0000;
+_memmap_seg_sharedmem1_max   = 0x5fec0000;
+_memmap_seg_iram0_0_start = 0x5ff00000;
+_memmap_seg_iram0_0_max   = 0x5ff04000;
+_memmap_seg_sram0_start = 0x60000000;
+_memmap_seg_sram0_max   = 0x600002e0;
+_memmap_seg_sram2_start = 0x60000400;
+_memmap_seg_sram2_max   = 0x60000578;
+_memmap_seg_sram3_start = 0x60000578;
+_memmap_seg_sram3_max   = 0x6000057c;
+_memmap_seg_sram4_start = 0x6000057c;
+_memmap_seg_sram4_max   = 0x60000598;
+_memmap_seg_sram5_start = 0x60000598;
+_memmap_seg_sram5_max   = 0x6000059c;
+_memmap_seg_sram6_start = 0x6000059c;
+_memmap_seg_sram6_max   = 0x600005b8;
+_memmap_seg_sram7_start = 0x600005b8;
+_memmap_seg_sram7_max   = 0x600005bc;
+_memmap_seg_sram8_start = 0x600005bc;
+_memmap_seg_sram8_max   = 0x600005d8;
+_memmap_seg_sram9_start = 0x600005d8;
+_memmap_seg_sram9_max   = 0x600005dc;
+_memmap_seg_sram10_start = 0x600005dc;
+_memmap_seg_sram10_max   = 0x600005f8;
+_memmap_seg_sram11_start = 0x600005f8;
+_memmap_seg_sram11_max   = 0x600005fc;
+_memmap_seg_sram12_start = 0x600005fc;
+_memmap_seg_sram12_max   = 0x60000618;
+_memmap_seg_sram13_start = 0x60000618;
+_memmap_seg_sram13_max   = 0x6000061c;
+_memmap_seg_sram14_start = 0x6000061c;
+_memmap_seg_sram14_max   = 0x60000638;
+_memmap_seg_sram15_start = 0x60000638;
+_memmap_seg_sram15_max   = 0x6000063c;
+_memmap_seg_sram16_start = 0x6000063c;
+_memmap_seg_sram16_max   = 0x60000658;
+_memmap_seg_sram17_start = 0x60000658;
+_memmap_seg_sram17_max   = 0x6000065c;
+_memmap_seg_sram18_start = 0x6000065c;
+_memmap_seg_sram18_max   = 0x60000678;
+_memmap_seg_sram19_start = 0x60000678;
+_memmap_seg_sram19_max   = 0x6000067c;
+_memmap_seg_sram20_start = 0x6000067c;
+_memmap_seg_sram20_max   = 0x60000698;
+_memmap_seg_sram21_start = 0x60000698;
+_memmap_seg_sram21_max   = 0x60800000;
+
+PROVIDE(_memmap_reset_vector = 0x60000000);
+PROVIDE(_memmap_vecbase_reset = 0x60000400);
+/* Various memory-map dependent cache attribute settings: */
+_memmap_cacheattr_wb_base = 0x00004220;
+_memmap_cacheattr_wt_base = 0x00001220;
+_memmap_cacheattr_bp_base = 0x00002220;
+_memmap_cacheattr_unused_mask = 0xFFFF000F;
+_memmap_cacheattr_wb_trapnull = 0x2222424F;
+_memmap_cacheattr_wba_trapnull = 0x2222424F;
+_memmap_cacheattr_wbna_trapnull = 0x2222522F;
+_memmap_cacheattr_wt_trapnull = 0x2222122F;
+_memmap_cacheattr_bp_trapnull = 0x2222222F;
+_memmap_cacheattr_wb_strict = 0xFFFF422F;
+_memmap_cacheattr_wt_strict = 0xFFFF122F;
+_memmap_cacheattr_bp_strict = 0xFFFF222F;
+_memmap_cacheattr_wb_allvalid = 0x22224222;
+_memmap_cacheattr_wt_allvalid = 0x22221222;
+_memmap_cacheattr_bp_allvalid = 0x22222222;
+_memmap_region_map = 0x0000000E;
+PROVIDE(_memmap_cacheattr_reset = _memmap_cacheattr_wb_trapnull);
+/*PROVIDE(_memmap_cacheattr_reset = _memmap_cacheattr_bp_allvalid);*/
+
+SECTIONS
+{
+
+  .srom.rodata : ALIGN(4)
+  {
+    _srom_rodata_start = ABSOLUTE(.);
+    *(.srom.rodata)
+    . = ALIGN (4);
+    _srom_rodata_end = ABSOLUTE(.);
+  } >srom0_seg :srom0_phdr
+
+  .srom.text : ALIGN(4)
+  {
+    _srom_text_start = ABSOLUTE(.);
+    *(.srom.literal .srom.text)
+    . = ALIGN (4);
+    _srom_text_end = ABSOLUTE(.);
+    _memmap_seg_srom0_end = ALIGN(0x8);
+  } >srom0_seg :srom0_phdr
+
+  _memmap_mem_srom_max = ABSOLUTE(.);
+
+  .ResetVector.text : ALIGN(4)
+  {
+    _ResetVector_text_start = ABSOLUTE(.);
+    KEEP (*(.ResetVector.text))
+    . = ALIGN (4);
+    _ResetVector_text_end = ABSOLUTE(.);
+  } >sram0_seg :sram0_phdr
+
+  .ResetHandler.text : ALIGN(4)
+  {
+    _ResetHandler_text_start = ABSOLUTE(.);
+    *(.ResetHandler.literal .ResetHandler.text)
+    . = ALIGN (4);
+    _ResetHandler_text_end = ABSOLUTE(.);
+    _memmap_seg_sram0_end = ALIGN(0x8);
+  } >sram0_seg :sram0_phdr
+
+
+
+  .WindowVectors.text : ALIGN(4)
+  {
+    _WindowVectors_text_start = ABSOLUTE(.);
+    KEEP (*(.WindowVectors.text))
+    . = ALIGN (4);
+    _WindowVectors_text_end = ABSOLUTE(.);
+    _memmap_seg_sram2_end = ALIGN(0x8);
+  } >sram2_seg :sram2_phdr
+
+
+  .Level2InterruptVector.literal : ALIGN(4)
+  {
+    _Level2InterruptVector_literal_start = ABSOLUTE(.);
+    *(.Level2InterruptVector.literal)
+    . = ALIGN (4);
+    _Level2InterruptVector_literal_end = ABSOLUTE(.);
+    _memmap_seg_sram3_end = ALIGN(0x8);
+  } >sram3_seg :sram3_phdr
+
+
+  .Level2InterruptVector.text : ALIGN(4)
+  {
+    _Level2InterruptVector_text_start = ABSOLUTE(.);
+    KEEP (*(.Level2InterruptVector.text))
+    . = ALIGN (4);
+    _Level2InterruptVector_text_end = ABSOLUTE(.);
+    _memmap_seg_sram4_end = ALIGN(0x8);
+  } >sram4_seg :sram4_phdr
+
+
+  .Level3InterruptVector.literal : ALIGN(4)
+  {
+    _Level3InterruptVector_literal_start = ABSOLUTE(.);
+    *(.Level3InterruptVector.literal)
+    . = ALIGN (4);
+    _Level3InterruptVector_literal_end = ABSOLUTE(.);
+    _memmap_seg_sram5_end = ALIGN(0x8);
+  } >sram5_seg :sram5_phdr
+
+
+  .Level3InterruptVector.text : ALIGN(4)
+  {
+    _Level3InterruptVector_text_start = ABSOLUTE(.);
+    KEEP (*(.Level3InterruptVector.text))
+    . = ALIGN (4);
+    _Level3InterruptVector_text_end = ABSOLUTE(.);
+    _memmap_seg_sram6_end = ALIGN(0x8);
+  } >sram6_seg :sram6_phdr
+
+
+  .Level4InterruptVector.literal : ALIGN(4)
+  {
+    _Level4InterruptVector_literal_start = ABSOLUTE(.);
+    *(.Level4InterruptVector.literal)
+    . = ALIGN (4);
+    _Level4InterruptVector_literal_end = ABSOLUTE(.);
+    _memmap_seg_sram7_end = ALIGN(0x8);
+  } >sram7_seg :sram7_phdr
+
+
+  .Level4InterruptVector.text : ALIGN(4)
+  {
+    _Level4InterruptVector_text_start = ABSOLUTE(.);
+    KEEP (*(.Level4InterruptVector.text))
+    . = ALIGN (4);
+    _Level4InterruptVector_text_end = ABSOLUTE(.);
+    _memmap_seg_sram8_end = ALIGN(0x8);
+  } >sram8_seg :sram8_phdr
+
+
+  .Level5InterruptVector.literal : ALIGN(4)
+  {
+    _Level5InterruptVector_literal_start = ABSOLUTE(.);
+    *(.Level5InterruptVector.literal)
+    . = ALIGN (4);
+    _Level5InterruptVector_literal_end = ABSOLUTE(.);
+    _memmap_seg_sram9_end = ALIGN(0x8);
+  } >sram9_seg :sram9_phdr
+
+
+  .Level5InterruptVector.text : ALIGN(4)
+  {
+    _Level5InterruptVector_text_start = ABSOLUTE(.);
+    KEEP (*(.Level5InterruptVector.text))
+    . = ALIGN (4);
+    _Level5InterruptVector_text_end = ABSOLUTE(.);
+    _memmap_seg_sram10_end = ALIGN(0x8);
+  } >sram10_seg :sram10_phdr
+
+
+  .DebugExceptionVector.literal : ALIGN(4)
+  {
+    _DebugExceptionVector_literal_start = ABSOLUTE(.);
+    *(.DebugExceptionVector.literal)
+    . = ALIGN (4);
+    _DebugExceptionVector_literal_end = ABSOLUTE(.);
+    _memmap_seg_sram11_end = ALIGN(0x8);
+  } >sram11_seg :sram11_phdr
+
+
+  .DebugExceptionVector.text : ALIGN(4)
+  {
+    _DebugExceptionVector_text_start = ABSOLUTE(.);
+    KEEP (*(.DebugExceptionVector.text))
+    . = ALIGN (4);
+    _DebugExceptionVector_text_end = ABSOLUTE(.);
+    _memmap_seg_sram12_end = ALIGN(0x8);
+  } >sram12_seg :sram12_phdr
+
+
+  .NMIExceptionVector.literal : ALIGN(4)
+  {
+    _NMIExceptionVector_literal_start = ABSOLUTE(.);
+    *(.NMIExceptionVector.literal)
+    . = ALIGN (4);
+    _NMIExceptionVector_literal_end = ABSOLUTE(.);
+    _memmap_seg_sram13_end = ALIGN(0x8);
+  } >sram13_seg :sram13_phdr
+
+
+  .NMIExceptionVector.text : ALIGN(4)
+  {
+    _NMIExceptionVector_text_start = ABSOLUTE(.);
+    KEEP (*(.NMIExceptionVector.text))
+    . = ALIGN (4);
+    _NMIExceptionVector_text_end = ABSOLUTE(.);
+    _memmap_seg_sram14_end = ALIGN(0x8);
+  } >sram14_seg :sram14_phdr
+
+
+  .KernelExceptionVector.literal : ALIGN(4)
+  {
+    _KernelExceptionVector_literal_start = ABSOLUTE(.);
+    *(.KernelExceptionVector.literal)
+    . = ALIGN (4);
+    _KernelExceptionVector_literal_end = ABSOLUTE(.);
+    _memmap_seg_sram15_end = ALIGN(0x8);
+  } >sram15_seg :sram15_phdr
+
+
+  .KernelExceptionVector.text : ALIGN(4)
+  {
+    _KernelExceptionVector_text_start = ABSOLUTE(.);
+    KEEP (*(.KernelExceptionVector.text))
+    . = ALIGN (4);
+    _KernelExceptionVector_text_end = ABSOLUTE(.);
+    _memmap_seg_sram16_end = ALIGN(0x8);
+  } >sram16_seg :sram16_phdr
+
+
+  .UserExceptionVector.literal : ALIGN(4)
+  {
+    _UserExceptionVector_literal_start = ABSOLUTE(.);
+    *(.UserExceptionVector.literal)
+    . = ALIGN (4);
+    _UserExceptionVector_literal_end = ABSOLUTE(.);
+    _memmap_seg_sram17_end = ALIGN(0x8);
+  } >sram17_seg :sram17_phdr
+
+
+  .UserExceptionVector.text : ALIGN(4)
+  {
+    _UserExceptionVector_text_start = ABSOLUTE(.);
+    KEEP (*(.UserExceptionVector.text))
+    . = ALIGN (4);
+    _UserExceptionVector_text_end = ABSOLUTE(.);
+    _memmap_seg_sram18_end = ALIGN(0x8);
+  } >sram18_seg :sram18_phdr
+
+
+  .DoubleExceptionVector.literal : ALIGN(4)
+  {
+    _DoubleExceptionVector_literal_start = ABSOLUTE(.);
+    *(.DoubleExceptionVector.literal)
+    . = ALIGN (4);
+    _DoubleExceptionVector_literal_end = ABSOLUTE(.);
+    _memmap_seg_sram19_end = ALIGN(0x8);
+  } >sram19_seg :sram19_phdr
+
+
+  .DoubleExceptionVector.text : ALIGN(4)
+  {
+    _DoubleExceptionVector_text_start = ABSOLUTE(.);
+    KEEP (*(.DoubleExceptionVector.text))
+    . = ALIGN (4);
+    _DoubleExceptionVector_text_end = ABSOLUTE(.);
+    _memmap_seg_sram20_end = ALIGN(0x8);
+  } >sram20_seg :sram20_phdr
+
+
+  .sram.rodata : ALIGN(4)
+  {
+    _sram_rodata_start = ABSOLUTE(.);
+    *(.sram.rodata)
+    . = ALIGN (4);
+    _sram_rodata_end = ABSOLUTE(.);
+  } >sram21_seg :sram21_phdr
+
+  .clib.rodata : ALIGN(4)
+  {
+    _clib_rodata_start = ABSOLUTE(.);
+    *(.clib.rodata)
+    . = ALIGN (4);
+    _clib_rodata_end = ABSOLUTE(.);
+  } >sram21_seg :sram21_phdr
+
+  .rtos.rodata : ALIGN(4)
+  {
+    _rtos_rodata_start = ABSOLUTE(.);
+    *(.rtos.rodata)
+    . = ALIGN (4);
+    _rtos_rodata_end = ABSOLUTE(.);
+  } >sram21_seg :sram21_phdr
+
+  .rodata : ALIGN(4)
+  {
+    _rodata_start = ABSOLUTE(.);
+    *(.rodata)
+    *(SORT(.rodata.sort.*))
+    KEEP (*(SORT(.rodata.keepsort.*) .rodata.keep.*))
+    *(.rodata.*)
+    *(.gnu.linkonce.r.*)
+    *(.rodata1)
+    __XT_EXCEPTION_TABLE__ = ABSOLUTE(.);
+    KEEP (*(.xt_except_table))
+    KEEP (*(.gcc_except_table))
+    *(.gnu.linkonce.e.*)
+    *(.gnu.version_r)
+    KEEP (*(.eh_frame))
+    /*  C++ constructor and destructor tables, properly ordered:  */
+    KEEP (*crtbegin.o(.ctors))
+    KEEP (*(EXCLUDE_FILE (*crtend.o) .ctors))
+    KEEP (*(SORT(.ctors.*)))
+    KEEP (*(.ctors))
+    KEEP (*crtbegin.o(.dtors))
+    KEEP (*(EXCLUDE_FILE (*crtend.o) .dtors))
+    KEEP (*(SORT(.dtors.*)))
+    KEEP (*(.dtors))
+    /*  C++ exception handlers table:  */
+    __XT_EXCEPTION_DESCS__ = ABSOLUTE(.);
+    *(.xt_except_desc)
+    *(.gnu.linkonce.h.*)
+    __XT_EXCEPTION_DESCS_END__ = ABSOLUTE(.);
+    *(.xt_except_desc_end)
+    *(.dynamic)
+    *(.gnu.version_d)
+    . = ALIGN(4);		/* this table MUST be 4-byte aligned */
+    _bss_table_start = ABSOLUTE(.);
+    LONG(_share_sram_bss_start)
+    LONG(_share_sram_bss_end)
+    LONG(_dram0_bss_start)
+    LONG(_dram0_bss_end)
+    LONG(_dram1_bss_start)
+    LONG(_dram1_bss_end)
+    LONG(_sharedmem_bss_start)
+    LONG(_sharedmem_bss_end)
+    LONG(_bss_start)
+    LONG(_bss_end)
+    _bss_table_end = ABSOLUTE(.);
+    . = ALIGN (4);
+
+    _rom_store_table = .;
+    LONG(_share_sram_data_start);
+    LONG(_share_sram_data_end);
+    LONG(LOADADDR(.share_sram.data));
+    LONG(_dram0_rodata_start);
+    LONG(_dram0_rodata_end);
+    LONG(LOADADDR(.dram0.rodata));
+    LONG(_dram0_data_start);
+    LONG(_dram0_data_end);
+    LONG(LOADADDR(.dram0.data));
+    LONG(_dram1_rodata_start);
+    LONG(_dram1_rodata_end);
+    LONG(LOADADDR(.dram1.rodata));
+    LONG(_dram1_data_start);
+    LONG(_dram1_data_end);
+    LONG(LOADADDR(.dram1.data));
+    LONG(_sharedmem_text_start);
+    LONG(_sharedmem_text_end);
+    LONG(LOADADDR(.sharedmem.text));
+    LONG(_sharedmem_rodata_start);
+    LONG(_sharedmem_rodata_end);
+    LONG(LOADADDR(.sharedmem.rodata));
+    LONG(_sharedmem_data_start);
+    LONG(_sharedmem_data_end);
+    LONG(LOADADDR(.sharedmem.data));
+    LONG(_sharedmem_bss_start);
+    LONG(_sharedmem_bss_end);
+    LONG(LOADADDR(.sharedmem.bss));
+    LONG(_iram0_text_start);
+    LONG(_iram0_text_end);
+    LONG(LOADADDR(.iram0.text));
+    LONG(_WindowVectors_text_start);
+    LONG(_WindowVectors_text_end);
+    LONG(LOADADDR(.WindowVectors.text));
+    LONG(_Level2InterruptVector_literal_start);
+    LONG(_Level2InterruptVector_literal_end);
+    LONG(LOADADDR(.Level2InterruptVector.literal));
+    LONG(_Level2InterruptVector_text_start);
+    LONG(_Level2InterruptVector_text_end);
+    LONG(LOADADDR(.Level2InterruptVector.text));
+    LONG(_Level3InterruptVector_literal_start);
+    LONG(_Level3InterruptVector_literal_end);
+    LONG(LOADADDR(.Level3InterruptVector.literal));
+    LONG(_Level3InterruptVector_text_start);
+    LONG(_Level3InterruptVector_text_end);
+    LONG(LOADADDR(.Level3InterruptVector.text));
+    LONG(_Level4InterruptVector_literal_start);
+    LONG(_Level4InterruptVector_literal_end);
+    LONG(LOADADDR(.Level4InterruptVector.literal));
+    LONG(_Level4InterruptVector_text_start);
+    LONG(_Level4InterruptVector_text_end);
+    LONG(LOADADDR(.Level4InterruptVector.text));
+    LONG(_Level5InterruptVector_literal_start);
+    LONG(_Level5InterruptVector_literal_end);
+    LONG(LOADADDR(.Level5InterruptVector.literal));
+    LONG(_Level5InterruptVector_text_start);
+    LONG(_Level5InterruptVector_text_end);
+    LONG(LOADADDR(.Level5InterruptVector.text));
+    LONG(_DebugExceptionVector_literal_start);
+    LONG(_DebugExceptionVector_literal_end);
+    LONG(LOADADDR(.DebugExceptionVector.literal));
+    LONG(_DebugExceptionVector_text_start);
+    LONG(_DebugExceptionVector_text_end);
+    LONG(LOADADDR(.DebugExceptionVector.text));
+    LONG(_NMIExceptionVector_literal_start);
+    LONG(_NMIExceptionVector_literal_end);
+    LONG(LOADADDR(.NMIExceptionVector.literal));
+    LONG(_NMIExceptionVector_text_start);
+    LONG(_NMIExceptionVector_text_end);
+    LONG(LOADADDR(.NMIExceptionVector.text));
+    LONG(_KernelExceptionVector_literal_start);
+    LONG(_KernelExceptionVector_literal_end);
+    LONG(LOADADDR(.KernelExceptionVector.literal));
+    LONG(_KernelExceptionVector_text_start);
+    LONG(_KernelExceptionVector_text_end);
+    LONG(LOADADDR(.KernelExceptionVector.text));
+    LONG(_UserExceptionVector_literal_start);
+    LONG(_UserExceptionVector_literal_end);
+    LONG(LOADADDR(.UserExceptionVector.literal));
+    LONG(_UserExceptionVector_text_start);
+    LONG(_UserExceptionVector_text_end);
+    LONG(LOADADDR(.UserExceptionVector.text));
+    LONG(_DoubleExceptionVector_literal_start);
+    LONG(_DoubleExceptionVector_literal_end);
+    LONG(LOADADDR(.DoubleExceptionVector.literal));
+    LONG(_DoubleExceptionVector_text_start);
+    LONG(_DoubleExceptionVector_text_end);
+    LONG(LOADADDR(.DoubleExceptionVector.text));
+    LONG(_sram_rodata_start);
+    LONG(_sram_rodata_end);
+    LONG(LOADADDR(.sram.rodata));
+    LONG(_clib_rodata_start);
+    LONG(_clib_rodata_end);
+    LONG(LOADADDR(.clib.rodata));
+    LONG(_rtos_rodata_start);
+    LONG(_rtos_rodata_end);
+    LONG(LOADADDR(.rtos.rodata));
+    LONG(_rodata_start);
+    LONG(_rodata_end);
+    LONG(LOADADDR(.rodata));
+    LONG(_sram_text_start);
+    LONG(_sram_text_end);
+    LONG(LOADADDR(.sram.text));
+    LONG(_text_start);
+    LONG(_text_end);
+    LONG(LOADADDR(.text));
+    LONG(_clib_text_start);
+    LONG(_clib_text_end);
+    LONG(LOADADDR(.clib.text));
+    LONG(_rtos_text_start);
+    LONG(_rtos_text_end);
+    LONG(LOADADDR(.rtos.text));
+    LONG(_clib_data_start);
+    LONG(_clib_data_end);
+    LONG(LOADADDR(.clib.data));
+    LONG(_clib_percpu_data_start);
+    LONG(_clib_percpu_data_end);
+    LONG(LOADADDR(.clib.percpu.data));
+    LONG(_rtos_percpu_data_start);
+    LONG(_rtos_percpu_data_end);
+    LONG(LOADADDR(.rtos.percpu.data));
+    LONG(_rtos_data_start);
+    LONG(_rtos_data_end);
+    LONG(LOADADDR(.rtos.data));
+    LONG(_sram_data_start);
+    LONG(_sram_data_end);
+    LONG(LOADADDR(.sram.data));
+    LONG(_data_start);
+    LONG(_data_end);
+    LONG(LOADADDR(.data));
+    LONG(__llvm_prf_names_start);
+    LONG(__llvm_prf_names_end);
+    LONG(LOADADDR(__llvm_prf_names));
+    LONG(0);
+    LONG(0);
+    LONG(0);
+    _rom_store = .;
+    . = ALIGN (4);
+    _rodata_end = ABSOLUTE(.);
+  } >sram21_seg :sram21_phdr
+
+  .sram.text : ALIGN(4)
+  {
+    _sram_text_start = ABSOLUTE(.);
+    *(.sram.literal .sram.text)
+    . = ALIGN (4);
+    _sram_text_end = ABSOLUTE(.);
+  } >sram21_seg :sram21_phdr
+
+  .text : ALIGN(4)
+  {
+    _stext = .;
+    _text_start = ABSOLUTE(.);
+    *(.entry.text)
+    *(.init.literal)
+    KEEP(*(.init))
+    *(.literal.sort.* SORT(.text.sort.*))
+    KEEP (*(.literal.keepsort.* SORT(.text.keepsort.*) .literal.keep.* .text.keep.* .literal.*personality* .text.*personality*))
+    *(.literal .text .literal.* .text.* .stub .gnu.warning .gnu.linkonce.literal.* .gnu.linkonce.t.*.literal .gnu.linkonce.t.*)
+    *(.fini.literal)
+    KEEP(*(.fini))
+    *(.gnu.version)
+    . = ALIGN (4);
+    _text_end = ABSOLUTE(.);
+    _etext = .;
+  } >sram21_seg :sram21_phdr
+
+  .clib.text : ALIGN(4)
+  {
+    _clib_text_start = ABSOLUTE(.);
+    *(.clib.literal .clib.text)
+    . = ALIGN (4);
+    _clib_text_end = ABSOLUTE(.);
+  } >sram21_seg :sram21_phdr
+
+  .rtos.text : ALIGN(4)
+  {
+    _rtos_text_start = ABSOLUTE(.);
+    *(.rtos.literal .rtos.text)
+    . = ALIGN (4);
+    _rtos_text_end = ABSOLUTE(.);
+  } >sram21_seg :sram21_phdr
+
+  .clib.data : ALIGN(4)
+  {
+    _clib_data_start = ABSOLUTE(.);
+    *(.clib.data)
+    . = ALIGN (4);
+    _clib_data_end = ABSOLUTE(.);
+  } >sram21_seg :sram21_phdr
+
+  .clib.percpu.data : ALIGN(4)
+  {
+    _clib_percpu_data_start = ABSOLUTE(.);
+    *(.clib.percpu.data)
+    . = ALIGN (4);
+    _clib_percpu_data_end = ABSOLUTE(.);
+  } >sram21_seg :sram21_phdr
+
+  .rtos.percpu.data : ALIGN(4)
+  {
+    _rtos_percpu_data_start = ABSOLUTE(.);
+    *(.rtos.percpu.data)
+    . = ALIGN (4);
+    _rtos_percpu_data_end = ABSOLUTE(.);
+  } >sram21_seg :sram21_phdr
+
+  .rtos.data : ALIGN(4)
+  {
+    _rtos_data_start = ABSOLUTE(.);
+    *(.rtos.data)
+    . = ALIGN (4);
+    _rtos_data_end = ABSOLUTE(.);
+  } >sram21_seg :sram21_phdr
+
+  .sram.data : ALIGN(4)
+  {
+    _sram_data_start = ABSOLUTE(.);
+    *(.sram.data)
+    . = ALIGN (4);
+    _sram_data_end = ABSOLUTE(.);
+  } >sram21_seg :sram21_phdr
+
+  .data : ALIGN(4)
+  {
+    _data_start = ABSOLUTE(.);
+    *(.data)
+    *(SORT(.data.sort.*))
+    KEEP (*(SORT(.data.keepsort.*) .data.keep.*))
+    *(.data.*)
+    *(.gnu.linkonce.d.*)
+    KEEP(*(.gnu.linkonce.d.*personality*))
+    *(.data1)
+    *(.sdata)
+    *(.sdata.*)
+    *(.gnu.linkonce.s.*)
+    *(.sdata2)
+    *(.sdata2.*)
+    *(.gnu.linkonce.s2.*)
+    KEEP(*(.jcr))
+    *(__llvm_prf_cnts)
+    *(__llvm_prf_data)
+    *(__llvm_prf_vnds)
+    . = ALIGN (4);
+    _data_end = ABSOLUTE(.);
+  } >sram21_seg :sram21_phdr
+
+  __llvm_prf_names : ALIGN(4)
+  {
+    __llvm_prf_names_start = ABSOLUTE(.);
+    *(__llvm_prf_names)
+    . = ALIGN (4);
+    __llvm_prf_names_end = ABSOLUTE(.);
+  } >sram21_seg :sram21_phdr
+
+  .share_sram.data : AT(LOADADDR(__llvm_prf_names) + ((SIZEOF(__llvm_prf_names) + 3) & 0xFFFFFFFC)) ALIGN(4)
+  {
+    _share_sram_data_start = ABSOLUTE(.);
+    *(.share_sram.data)
+    . = ALIGN (4);
+    _share_sram_data_end = ABSOLUTE(.);
+  } >share_sram_0_seg :share_sram_0_phdr
+
+  .share_sram.bss (NOLOAD) : ALIGN(8)
+  {
+    . = ALIGN (8);
+    _share_sram_bss_start = ABSOLUTE(.);
+    *(.share_sram.bss)
+    . = ALIGN (8);
+    _share_sram_bss_end = ABSOLUTE(.);
+    _memmap_seg_share_sram_0_end = ALIGN(0x8);
+  } >share_sram_0_seg :share_sram_0_bss_phdr
+
+  _memmap_mem_share_sram_max = ABSOLUTE(.);
+
+  .dram0.rodata : AT(LOADADDR(.share_sram.data) + ((SIZEOF(.share_sram.data) + 3) & 0xFFFFFFFC)) ALIGN(4)
+  {
+    _dram0_rodata_start = ABSOLUTE(.);
+    *(.dram0.rodata)
+    . = ALIGN (4);
+    _dram0_rodata_end = ABSOLUTE(.);
+  } >dram0_0_seg :dram0_0_phdr
+
+  .dram0.data : AT(LOADADDR(.dram0.rodata) + (ADDR(.dram0.data) - ADDR(.dram0.rodata))) ALIGN(4)
+  {
+    _dram0_data_start = ABSOLUTE(.);
+    *(.dram0.data)
+    . = ALIGN (4);
+    _dram0_data_end = ABSOLUTE(.);
+  } >dram0_0_seg :dram0_0_phdr
+
+  .dram0.bss (NOLOAD) : ALIGN(8)
+  {
+    . = ALIGN (8);
+    _dram0_bss_start = ABSOLUTE(.);
+    *(.dram0.bss)
+    . = ALIGN (8);
+    _dram0_bss_end = ABSOLUTE(.);
+    _memmap_seg_dram0_0_end = ALIGN(0x8);
+  } >dram0_0_seg :dram0_0_bss_phdr
+
+  _memmap_mem_dram0_max = ABSOLUTE(.);
+
+  .dram1.rodata : AT(LOADADDR(.dram0.data) + ((SIZEOF(.dram0.data) + 3) & 0xFFFFFFFC)) ALIGN(4)
+  {
+    _dram1_rodata_start = ABSOLUTE(.);
+    *(.dram1.rodata)
+    . = ALIGN (4);
+    _dram1_rodata_end = ABSOLUTE(.);
+  } >dram1_0_seg :dram1_0_phdr
+
+  .dram1.data : AT(LOADADDR(.dram1.rodata) + (ADDR(.dram1.data) - ADDR(.dram1.rodata))) ALIGN(4)
+  {
+    _dram1_data_start = ABSOLUTE(.);
+    *(.dram1.data)
+    . = ALIGN (4);
+    _dram1_data_end = ABSOLUTE(.);
+  } >dram1_0_seg :dram1_0_phdr
+
+  .dram1.bss (NOLOAD) : ALIGN(8)
+  {
+    . = ALIGN (8);
+    _dram1_bss_start = ABSOLUTE(.);
+    *(.dram1.bss)
+    . = ALIGN (8);
+    _dram1_bss_end = ABSOLUTE(.);
+    _memmap_seg_dram1_0_end = ALIGN(0x8);
+  } >dram1_0_seg :dram1_0_bss_phdr
+
+  _memmap_mem_dram1_max = ABSOLUTE(.);
+
+  .sharedmem.text : AT(LOADADDR(.dram1.data) + ((SIZEOF(.dram1.data) + 3) & 0xFFFFFFFC)) ALIGN(4)
+  {
+    _sharedmem_text_start = ABSOLUTE(.);
+    *(.sharedmem.literal .sharedmem.text)
+    *(.sharedmem.text.*)
+    . = ALIGN (4);
+    _sharedmem_text_end = ABSOLUTE(.);
+  } >sharedmem1_seg :sharedmem1_phdr
+
+  .sharedmem.rodata : AT(LOADADDR(.sharedmem.text) + ((SIZEOF(.sharedmem.text) + 3) & 0xFFFFFFFC)) ALIGN(4)
+  {
+    _sharedmem_rodata_start = ABSOLUTE(.);
+    *(.sharedmem.rodata)
+    *(.sharedmem.rodata.*)
+    . = ALIGN (4);
+    _sharedmem_rodata_end = ABSOLUTE(.);
+  } >sharedmem1_seg :sharedmem1_phdr
+
+  .sharedmem.data : AT(LOADADDR(.sharedmem.rodata) + (ADDR(.sharedmem.data) - ADDR(.sharedmem.rodata))) ALIGN(4)
+  {
+    _sharedmem_data_start = ABSOLUTE(.);
+    *(.sharedmem.data)
+    *(.sharedmem.data.*)
+    . = ALIGN (4);
+    _sharedmem_data_end = ABSOLUTE(.);
+  } >sharedmem1_seg :sharedmem1_phdr
+
+  .sharedmem.bss (NOLOAD) : ALIGN(8)
+  {
+    . = ALIGN (8);
+    _sharedmem_bss_start = ABSOLUTE(.);
+    *(.sharedmem.bss)
+    *(.sharedmem.bss.*)
+    . = ALIGN (8);
+    _sharedmem_bss_end = ABSOLUTE(.);
+    _memmap_seg_sharedmem1_end = ALIGN(0x8);
+  } >sharedmem1_seg :sharedmem1_bss_phdr
+
+  _memmap_mem_sharedmem_max = ABSOLUTE(.);
+
+  .iram0.text : AT(LOADADDR(.sharedmem.data) + ((SIZEOF(.sharedmem.data) + 3) & 0xFFFFFFFC)) ALIGN(4)
+  {
+    _iram0_text_start = ABSOLUTE(.);
+    *(.iram0.literal .iram.literal .iram.text.literal .iram0.text .iram.text)
+    . = ALIGN (4);
+    _iram0_text_end = ABSOLUTE(.);
+    _memmap_seg_iram0_0_end = ALIGN(0x8);
+  } >iram0_0_seg :iram0_0_phdr
+
+  _memmap_mem_iram0_max = ABSOLUTE(.);
+
+  .bss (NOLOAD) : ALIGN(8)
+  {
+    . = ALIGN (8);
+    _bss_start = ABSOLUTE(.);
+    *(.dynsbss)
+    *(.sbss)
+    *(.sbss.*)
+    *(.gnu.linkonce.sb.*)
+    *(.scommon)
+    *(.sbss2)
+    *(.sbss2.*)
+    *(.gnu.linkonce.sb2.*)
+    *(.dynbss)
+    *(.bss)
+    *(SORT(.bss.sort.*))
+    KEEP (*(SORT(.bss.keepsort.*) .bss.keep.*))
+    *(.bss.*)
+    *(.gnu.linkonce.b.*)
+    *(COMMON)
+    *(.clib.bss)
+    *(.clib.percpu.bss)
+    *(.rtos.percpu.bss)
+    *(.rtos.bss)
+    *(.sram.bss)
+    . = ALIGN (8);
+    _bss_end = ABSOLUTE(.);
+    _end = ALIGN(0x8);
+    PROVIDE(end = ALIGN(0x8));
+    _stack_sentry = ALIGN(0x8);
+    _memmap_seg_sram21_end = ALIGN(0x8);
+  } >sram21_seg :sram21_bss_phdr
+
+  PROVIDE(__stack = 0x60800000);
+  _heap_sentry = 0x60800000;
+  _memmap_mem_sram_max = ABSOLUTE(.);
+
+  .debug  0 :  { *(.debug) }
+  .line  0 :  { *(.line) }
+  .debug_srcinfo  0 :  { *(.debug_srcinfo) }
+  .debug_sfnames  0 :  { *(.debug_sfnames) }
+  .debug_aranges  0 :  { *(.debug_aranges) }
+  .debug_pubnames  0 :  { *(.debug_pubnames) }
+  .debug_info  0 :  { *(.debug_info) }
+  .debug_abbrev  0 :  { *(.debug_abbrev) }
+  .debug_line  0 :  { *(.debug_line) }
+  .debug_frame  0 :  { *(.debug_frame) }
+  .debug_str  0 :  { *(.debug_str) }
+  .debug_loc  0 :  { *(.debug_loc) }
+  .debug_macinfo  0 :  { *(.debug_macinfo) }
+  .debug_weaknames  0 :  { *(.debug_weaknames) }
+  .debug_funcnames  0 :  { *(.debug_funcnames) }
+  .debug_typenames  0 :  { *(.debug_typenames) }
+  .debug_varnames  0 :  { *(.debug_varnames) }
+  .xt.insn 0 :
+  {
+    KEEP (*(.xt.insn))
+    KEEP (*(.gnu.linkonce.x.*))
+  }
+  .xt.prop 0 :
+  {
+    KEEP (*(.xt.prop))
+    KEEP (*(.xt.prop.*))
+    KEEP (*(.gnu.linkonce.prop.*))
+  }
+  .xt.lit 0 :
+  {
+    KEEP (*(.xt.lit))
+    KEEP (*(.xt.lit.*))
+    KEEP (*(.gnu.linkonce.p.*))
+  }
+  .debug.xt.callgraph 0 :
+  {
+    KEEP (*(.debug.xt.callgraph .debug.xt.callgraph.* .gnu.linkonce.xt.callgraph.*))
+  }
+}
+
