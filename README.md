@@ -8,6 +8,7 @@
 
 ## API接口说明文档：
 * [cv通用函数接口说明](./docs/CV通用函数接口说明1.0.md)
+  * **[CV通用API函数和通用操作API函数说明](./modules/common_and_cv_utity.md)(源代码不开源，但是有文档说明，见modules文件夹)**
 * 语音处理通用函数接口说明
 * 文本处理通用函数接口说明
 
@@ -30,6 +31,8 @@ cd result_compare
 python compare_with_opencv.py         # 通过宏控制测试模块的开关
 python compare_with_pillow.py         # 通过宏控制测试模块的开关
 python compare_with_torchvision.py    # 通过宏控制测试模块的开关
+
+# demo文件夹中有C语言测试脚本test.c，可以将库编译后链接运行
 ```
 
 ## 对比结果一览
